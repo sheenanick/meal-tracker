@@ -8,7 +8,7 @@ import { Log } from './log.model';
     <h1 class="text-center jumbotron">Meal Tracker</h1>
     <div class="row">
       <div class="col-sm-4">
-        <h3>Calories</h3>
+        <calories-display [totalCalories]="totalCalories"></calories-display>
       </div>
       <div class="col-sm-4">
         <log-list [childLogList]="masterLogList"></log-list>
@@ -25,11 +25,14 @@ import { Log } from './log.model';
 export class AppComponent {
   public masterLogList: Log[] = [];
   public showForm: boolean = false;
+  public totalCalories: number = 0;
   addLog(newLogFromChild) {
     this.masterLogList.push(newLogFromChild);
     this.showForm = false;
+    this.totalCalories += newLogFromChild.calories;
   }
   newLogClicked() {
     this.showForm = true;
   }
+
 }

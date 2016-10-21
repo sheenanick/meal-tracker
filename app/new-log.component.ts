@@ -32,7 +32,8 @@ export class NewLogComponent {
   @Output() newLogSender = new EventEmitter();
   addClicked(name: string, details: string, calories: number, date: string) {
     var newDate = new Date(date);
-    var newLogToAdd: Log = new Log(name, details, calories, newDate);
+    var newLogToAdd: Log = new Log(name, details, +calories, newDate);
     this.newLogSender.emit(newLogToAdd);
   }
+
 }
