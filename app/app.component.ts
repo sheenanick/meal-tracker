@@ -16,6 +16,5 @@ export class AppComponent {
   public masterLogList: Log[] = [];
   addLog(newLogFromChild) {
     this.masterLogList.push(newLogFromChild);
-    console.log(this.masterLogList);
   }
 }
