@@ -6,6 +6,7 @@ import { Log } from './log.model';
   inputs: ['showForm'],
   template: `
     <div *ngIf="showForm">
+      <h3>Add New Log</h3>
       <div class="form-group">
         <label>Name:</label>
         <input class="form-control" #name>

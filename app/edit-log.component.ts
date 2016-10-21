@@ -5,24 +5,32 @@ import { Log } from './log.model';
   selector: 'edit-log',
   inputs: ['log'],
   template: `
-    <div *ngIf="log">
-      <div class="form-group">
-        <label>Name:</label>
-        <input class="form-control" [(ngModel)]="log.name">
+    <div *ngIf="log" class="list-div" id="edit-form">
+      <div class="form-group row">
+        <label class="col-xs-2">Name:</label>
+        <div class="col-xs-10">
+          <input class="form-control" [(ngModel)]="log.name">
+        </div>
       </div>
-      <div class="form-group">
-        <label>Details:</label>
-        <input class="form-control" [(ngModel)]="log.details">
+      <div class="form-group row">
+        <label class="col-xs-2">Details:</label>
+        <div class="col-xs-10">
+          <input class="form-control" [(ngModel)]="log.details">
+        </div>
       </div>
-      <div class="form-group">
-        <label>Calories:</label>
-        <input class="form-control" type="number" [(ngModel)]="log.calories">
+      <div class="form-group row">
+        <label class="col-xs-2">Calories:</label>
+        <div class="col-xs-10">
+          <input class="form-control" type="number" [(ngModel)]="log.calories">
+        </div>
       </div>
-      <div class="form-group">
-        <label>Calories:</label>
-        <input class="form-control" type="datetime-local" [(ngModel)]="log.date">
+      <div class="form-group row">
+        <label class="col-xs-2">Date/Time:</label>
+        <div class="col-xs-10">
+          <input class="form-control" type="datetime-local" [(ngModel)]="log.date">
+        </div>
       </div>
-      <button class="btn btn-default" (click)="doneClicked(log)">Done</button>
+      <button class="btn btn-default btn-sm" (click)="doneClicked(log)">Done</button>
     </div>
   `
 })

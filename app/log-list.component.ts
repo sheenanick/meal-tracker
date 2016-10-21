@@ -13,11 +13,13 @@ import { Log } from './log.model';
         <option value="Low">Low Calorie (<500)</option>
       </select></h3>
       <div *ngFor="let log of childLogList | filter:filterBy">
-        <p>Name: {{ log.name }}</p>
-        <p>Details: {{ log.details }}</p>
-        <p>Calories: {{ log.calories }}</p>
-        <p>Date/Time: {{ log.date | date:'short'}}</p>
-        <button class="btn btn-default btn-sm" (click)="editClicked(log)">Edit</button>
+        <div class="list-div" id="log">
+          <p><strong>Name:</strong> {{ log.name }}</p>
+          <p><strong>Details:</strong> {{ log.details }}</p>
+          <p><strong>Calories:</strong> {{ log.calories }}</p>
+          <p><strong>Date/Time:</strong> {{ log.date | date:'short'}}</p>
+          <button class="btn btn-default btn-sm" (click)="editClicked(log)">Edit</button>
+        </div>
       </div>
       <edit-log [log]="editLog" (doneClickedSender)="doneClicked($event)"></edit-log>
     </div>

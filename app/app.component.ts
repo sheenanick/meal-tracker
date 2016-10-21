@@ -7,14 +7,16 @@ import { Log } from './log.model';
   <div class="container">
     <h1 class="text-center jumbotron">Meal Tracker</h1>
     <div class="row">
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <calories-display [totalCalories]="totalCalories"></calories-display>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-6">
         <log-list [childLogList]="masterLogList"></log-list>
       </div>
-      <div class="col-sm-4" id="new-form">
-        <button class="btn btn-primary" (click)="newLogClicked()">Create Log</button>
+      <div class="col-sm-3" id="new-form">
+        <div *ngIf="!showForm">
+          <button class="btn btn-primary" (click)="newLogClicked()" id="create-btn">Create a New Log Entry</button>
+        </div>
         <new-log [showForm]="showForm" (newLogSender)="addLog($event)"></new-log>
       </div>
     </div>
