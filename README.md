@@ -1,6 +1,6 @@
 # Meal Tracker
 
-#### _Epicodus JavaScript Week 2 Independent Project, 10.20.2016_
+#### _Epicodus JavaScript Week 2 Independent Project, 10.21.2016_
 
 #### By Sheena Nickerson
 
@@ -10,7 +10,14 @@ This is a meal tracking application where users can log foods they have eaten ea
 
 ## Technical Specifications
 
-Behavior: Example Input, Example Output
+| Behavior                                        | Example Input                                                                              | Example Output               |
+|-------------------------------------------------|--------------------------------------------------------------------------------------------|------------------------------|
+| Create new food log based on form input         | name: 'Fries', details: 'I only ate half of them', calories: 365, date/time: 10/21/16 8:09 | same as input                |
+| List all logs                                   | list all                                                                                   | all logs                     |
+| Filter logs by calories                         | 'high calorie'                                                                             | all logs with calories > 500 |
+| Edit food logs                                  | details: 'I ate most of them'                                                              | same as input                |
+| Calculate total calories consumed in a day      | calories: 365, 250, 550, 775                                                               | total: 1940                  |
+| Calculate the average calories consumed per day | calories: 1940, 2200, 2000, 1980                                                           | average: 2030                |
 
 ## Setup/Installation Requirements
 
