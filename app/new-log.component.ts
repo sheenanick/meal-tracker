@@ -1,10 +1,11 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Log } from './log.model';
 
 @Component({
   selector: 'new-log',
+  inputs: ['showForm'],
   template: `
-    <div>
+    <div *ngIf="showForm">
       <div class="form-group">
         <label>Name:</label>
         <input class="form-control" #name>
@@ -17,15 +18,21 @@ import { Log } from './log.model';
         <label>Calories:</label>
         <input class="form-control" type="number" #calories>
       </div>
-      <button class="btn btn-primary" (click)="addClicked(name.value, details.value, calories.value); name.value=''; details.value=''; calories.value='';">Add</button>
+      <div class="form-group">
+        <label>Date:</label>
+        <input class="form-control" type="datetime-local" #date>
+      </div>
+      <button class="btn btn-primary" (click)="addClicked(name.value, details.value, calories.value, date.value); name.value=''; details.value=''; calories.value=''; date.value='';">Add</button>
     </div>
   `
 })
 
 export class NewLogComponent {
+  public showForm: boolean;
   @Output() newLogSender = new EventEmitter();
-  addClicked(name: string, details: string, calories: number) {
-    var newLogToAdd: Log = new Log(name, details, calories);
+  addClicked(name: string, details: string, calories: number, date: string) {
+    var newDate = new Date(date);
+    var newLogToAdd: Log = new Log(name, details, calories, newDate);
     this.newLogSender.emit(newLogToAdd);
   }
 }
