@@ -27,9 +27,11 @@ export class AppComponent {
   public showForm: boolean = false;
   public totalCalories: number = 0;
   addLog(newLogFromChild) {
-    this.masterLogList.push(newLogFromChild);
+    if(newLogFromChild) {
+      this.masterLogList.push(newLogFromChild);
+      this.totalCalories += newLogFromChild.calories;
+    }
     this.showForm = false;
-    this.totalCalories += newLogFromChild.calories;
   }
   newLogClicked() {
     this.showForm = true;

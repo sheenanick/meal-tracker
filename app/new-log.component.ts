@@ -23,6 +23,7 @@ import { Log } from './log.model';
         <input class="form-control" type="datetime-local" #date>
       </div>
       <button class="btn btn-primary" (click)="addClicked(name.value, details.value, calories.value, date.value); name.value=''; details.value=''; calories.value=''; date.value='';">Add</button>
+      <button class="btn btn-danger" (click)="cancelClicked()">Cancel</button>
     </div>
   `
 })
@@ -34,6 +35,9 @@ export class NewLogComponent {
     var newDate = new Date(date);
     var newLogToAdd: Log = new Log(name, details, +calories, newDate);
     this.newLogSender.emit(newLogToAdd);
+  }
+  cancelClicked() {
+    this.newLogSender.emit(null);
   }
 
 }
