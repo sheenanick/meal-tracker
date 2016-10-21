@@ -7,6 +7,7 @@ import { Log } from './log.model';
   <div class="container">
     <h1 class="text-center">Meal Tracker</h1>
     <new-log (newLogSender)="addLog($event)"></new-log>
+    <log-list [childLogList]="masterLogList"></log-list>
   </div>
   `
 })
