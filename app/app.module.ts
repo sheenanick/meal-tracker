@@ -4,6 +4,8 @@ import { FormsModule }   from '@angular/forms';
 import { AppComponent }   from './app.component';
 import { NewLogComponent }   from './new-log.component';
 import { LogListComponent }   from './log-list.component';
+import { EditLogComponent }   from './edit-log.component';
+import { FilterPipe }   from './filter.pipe';
 
 @NgModule({
   imports: [
@@ -13,7 +15,9 @@ import { LogListComponent }   from './log-list.component';
   declarations: [
     AppComponent,
     NewLogComponent,
-    LogListComponent
+    LogListComponent,
+    EditLogComponent,
+    FilterPipe
   ],
   bootstrap:    [ AppComponent ]
 })

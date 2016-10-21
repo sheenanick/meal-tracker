@@ -6,15 +6,34 @@ import { Log } from './log.model';
   inputs: ['childLogList'],
   template: `
     <div *ngIf="childLogList">
-      <div *ngFor="let log of childLogList">
+      <h3>Food Logs</h3>
+      <select (change)="onChangeFilter($event.target.value)">
+        <option value="All">Show All</option>
+        <option value="High">High Calorie (500 and higher)</option>
+        <option value="Low">Low Calorie (less than 500)</option>
+      </select>
+      <div *ngFor="let log of childLogList | filter:filterBy">
         <p>Name: {{ log.name }}</p>
         <p>Details: {{ log.details }}</p>
         <p>Calories: {{ log.calories }}</p>
+        <button class="btn btn-default btn-sm" (click)="editClicked(log)">Edit</button>
       </div>
+      <edit-log [log]="editLog" (doneClickedSender)="doneClicked($event)"></edit-log>
     </div>
   `
 })
 
 export class LogListComponent {
   public childLogList: Log[];
+  public filterBy: string = 'All';
+  public editLog: Log = null;
+  onChangeFilter(optionSelected) {
+    this.filterBy = optionSelected;
+  }
+  editClicked(log: Log) {
+    this.editLog = log;
+  }
+  doneClicked(log: Log) {
+    this.editLog = null;
+  }
 }
