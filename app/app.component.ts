@@ -5,15 +5,17 @@ import { Log } from './log.model';
   selector: 'my-app',
   template: `
   <div class="container">
-    <h1 class="text-center">Meal Tracker</h1>
+    <h1 class="text-center jumbotron">Meal Tracker</h1>
     <div class="row">
       <div class="col-sm-4">
-        Calories
+        <h3>Calories</h3>
       </div>
-      <div class="col-sm-8">
+      <div class="col-sm-4">
+        <log-list [childLogList]="masterLogList"></log-list>
+      </div>
+      <div class="col-sm-4" id="new-form">
         <button class="btn btn-primary" (click)="newLogClicked()">Create Log</button>
         <new-log [showForm]="showForm" (newLogSender)="addLog($event)"></new-log>
-        <log-list [childLogList]="masterLogList"></log-list>
       </div>
     </div>
   </div>

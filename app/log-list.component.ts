@@ -6,12 +6,12 @@ import { Log } from './log.model';
   inputs: ['childLogList'],
   template: `
     <div *ngIf="childLogList">
-      <h3>Food Logs</h3>
+      <h3 class="text-center">Log History
       <select (change)="onChangeFilter($event.target.value)">
         <option value="All">Show All</option>
         <option value="High">High Calorie (500+)</option>
         <option value="Low">Low Calorie (<500)</option>
-      </select>
+      </select></h3>
       <div *ngFor="let log of childLogList | filter:filterBy">
         <p>Name: {{ log.name }}</p>
         <p>Details: {{ log.details }}</p>
