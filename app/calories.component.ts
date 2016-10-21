@@ -6,7 +6,7 @@ import { Log } from './log.model';
   inputs: ['totalCalories'],
   template: `
     <h3>Total Calories</h3>
-    <p>{{ totalCalories }}</p>
+    <p class="calories">{{ totalCalories }}</p>
   `
 })
 
