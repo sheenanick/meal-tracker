@@ -19,11 +19,7 @@ import { Log } from './log.model';
         <label>Calories:</label>
         <input class="form-control" type="number" #calories>
       </div>
-      <div class="form-group">
-        <label>Date:</label>
-        <input class="form-control" type="datetime-local" #date>
-      </div>
-      <button class="btn btn-primary" (click)="addClicked(name.value, details.value, calories.value, date.value); name.value=''; details.value=''; calories.value=''; date.value='';">Add</button>
+      <button class="btn btn-primary" (click)="addClicked(name.value, details.value, calories.value); name.value=''; details.value=''; calories.value='';">Add</button>
       <button class="btn btn-danger" (click)="cancelClicked()">Cancel</button>
     </div>
   `
@@ -32,9 +28,8 @@ import { Log } from './log.model';
 export class NewLogComponent {
   public showForm: boolean;
   @Output() newLogSender = new EventEmitter();
-  addClicked(name: string, details: string, calories: number, date: string) {
-    var newDate = new Date(date);
-    var newLogToAdd: Log = new Log(name, details, +calories, newDate);
+  addClicked(name: string, details: string, calories: number) {
+    var newLogToAdd: Log = new Log(name, details, +calories);
     this.newLogSender.emit(newLogToAdd);
   }
   cancelClicked() {

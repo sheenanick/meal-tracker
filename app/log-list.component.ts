@@ -17,7 +17,6 @@ import { Log } from './log.model';
           <p><strong>Name:</strong> {{ log.name }}</p>
           <p><strong>Details:</strong> {{ log.details }}</p>
           <p><strong>Calories:</strong> {{ log.calories }}</p>
-          <p><strong>Date/Time:</strong> {{ log.date | date:'short'}}</p>
           <button class="btn btn-default btn-sm" (click)="editClicked(log)">Edit</button>
         </div>
       </div>

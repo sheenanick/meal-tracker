@@ -16,8 +16,7 @@ This is a meal tracking application where users can log foods they have eaten ea
 | List all logs                                   | list all                                                                                   | all logs                     |
 | Filter logs by calories                         | 'high calorie'                                                                             | all logs with calories > 500 |
 | Edit food logs                                  | details: 'I ate most of them'                                                              | same as input                |
-| Calculate total calories consumed in a day      | calories: 365, 250, 550, 775                                                               | total: 1940                  |
-| Calculate the average calories consumed per day | calories: 1940, 2200, 2000, 1980                                                           | average: 2030                |
+| Calculate total calories consumed               | calories: 365, 250, 550, 775                                                               | total: 1940                  |
 
 ## Setup/Installation Requirements
 
