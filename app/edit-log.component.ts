@@ -24,12 +24,6 @@ import { Log } from './log.model';
           <input class="form-control" type="number" [(ngModel)]="log.calories">
         </div>
       </div>
-      <div class="form-group row">
-        <label class="col-xs-2">Date/Time:</label>
-        <div class="col-xs-10">
-          <input class="form-control" type="datetime-local" [(ngModel)]="log.date">
-        </div>
-      </div>
       <button class="btn btn-default btn-sm" (click)="doneClicked(log)">Done</button>
     </div>
   `
