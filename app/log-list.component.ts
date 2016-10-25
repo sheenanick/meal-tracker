@@ -29,6 +29,7 @@ export class LogListComponent {
   public childLogList: Log[];
   public filterBy: string = 'All';
   public editLog: Log = null;
+  @Output() logEditedSender = new EventEmitter();
   onChangeFilter(optionSelected) {
     this.filterBy = optionSelected;
   }
@@ -37,5 +38,6 @@ export class LogListComponent {
   }
   doneClicked(log: Log) {
     this.editLog = null;
+    this.logEditedSender.emit(log);
   }
 }

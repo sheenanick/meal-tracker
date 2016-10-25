@@ -11,7 +11,7 @@ import { Log } from './log.model';
         <calories-display [totalCalories]="totalCalories"></calories-display>
       </div>
       <div class="col-sm-6">
-        <log-list [childLogList]="masterLogList"></log-list>
+        <log-list [childLogList]="masterLogList" (logEditedSender)="recalculateCalories($event)"></log-list>
       </div>
       <div class="col-sm-3" id="new-form">
         <div *ngIf="!showForm">
@@ -31,12 +31,20 @@ export class AppComponent {
   addLog(newLogFromChild) {
     if(newLogFromChild) {
       this.masterLogList.push(newLogFromChild);
-      this.totalCalories += newLogFromChild.calories;
+      this.calculateCalories();
     }
     this.showForm = false;
   }
   newLogClicked() {
     this.showForm = true;
   }
-
+  calculateCalories() {
+    this.totalCalories = 0;
+    for (let i = 0; i < this.masterLogList.length; i++) {
+      this.totalCalories += this.masterLogList[i].calories;
+    }
+  }
+  recalculateCalories(log) {
+    this.calculateCalories();
+  }
 }
